@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Dieet app Andu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Dieet-app Andu">
+  <meta name="author" content="Andwele">
+  <meta http-equiv="Cache-control" content="no-cache"/>
+
+  <!-- import bootstrap-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
+  integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+  <!-- import web3 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.3.4/web3.min.js"
+  integrity="sha512-TTGImODeszogiro9DUvleC9NJVnxO6M0+69nbM3YE9SYcVe4wZp2XYpELtcikuFZO9vjXNPyeoHAhS5DHzX1ZQ=="
+  crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+  <!-- import eigen javascript-->
+  <script src="Front-end\js\main.js"></script>
+  <script src="Front-end\js\layout.js"></script>
+  <script src="Front-end\js\blockchain.js"></script>
+  <link rel="stylesheet" href="Front-end\css\blockchain.css">
+</head>
+
+<body>
+  <div class="container">
+    <main>
+      <!-- Errorberichten -->
+      <div class="alert alert-success alert-dismissible" role="alert" id="alertGetEthers"></div>
+      <div class="alert alert-dark alert-dismissible" role="alert" id="alertThanksMessage"></div>
+      <div class="alert alert-danger alert-dismissible" role="alert" id="ErrorMessage"></div>
+
+
+      <!-- Bootstrap Grid -->
+      <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+          <h2><img src="img/keto.jpg.webp" alt="" width="72" height="57">Dieet-app Andu</h2>
+          <p class="lead">Welkom op mijn d-app om je gewicht bij te houden. Zet een doel voor jezelf en krijg eth als beloning!
+        </div>
+        <div class="col-sm-3"></div>
+      </div>
+      <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+          <h4 class="mb-3">Wie gaat zijn gewicht bij houden</h4>
+          <label for="EthAdress" class="form-label">Wie gaat zijn gewicht bijhouden</label>
+          <input type="text" class="form-control" id="EthAdress" required>
+        </div>
+        <div class="col-sm-3"></div>
+      </div>
+      <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+          <label for="sendMoney" class="form-label"> Wat wordt je beloning in eth?</label>
+          <input type="text" class="form-control" id="sendMoney" placeholder="" value="" required>
+      </div>
+      <div class="col-sm-3"></div>
+    </div>
+        <div class="row">
+          <div class="col-sm-3"></div>
+          <div class="col-sm-6">
+            <label for="sendMoney" class="form-label"> Wat wordt je doel(in hele kg)?</label>
+            <input type="text" class="form-control" id="Doel" required>
+        </div>
+        <div class="col-sm-3"></div>
+        </div>
+       <div class="row">
+        <div class="col-sm-3"></div>
+          <div class="col-sm-6"><br>
+            <button type="button" id="btnAddGewicht" class="btn btn-secondary">Voeg toe</button>
+           <hr />
+          </div>
+          <div class="col-sm-3"></div>
+        </div>
+          <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+          <label for="huidigGewicht" class="form-label">wat is je gewicht</label>
+          <input type="text" class="form-control" id="huidigGewicht" required>
+        </div>
+        <div class="col-sm-3"></div>
+      </div>
+        <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6"><br>
+          <button type="button" id="btnAddGewicht" class="btn btn-secondary">Voeg toe</button>
+          <hr />
+         </div>
+        <div class="col-sm-3"></div>
+      </div>
+      <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+          <br>
+          <span id="amountEth"></span>
+          <hr/>
+        </div>
+        <div class="col-sm-3"></div>
+      </div>
+      <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+          <label for="getBeloning" class="form-label">Wat is je Beloning?</label>
+          <textarea class="form-control" id="getBeloning" readonly rows="1"></textarea>
+          </select>
+        </div>
+        <div class="col-sm-3"></div>
+      </div>
+      <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+          <br>
+          <button type="button" id="btnGetBeloning" class="btn btn-secondary">Zie beloning</button>
+        </div>
+        <div class="col-sm-3"></div>
+      </div>
+        <div class="row">
+          <div class="col-sm-3"></div>
+          <div class="col-sm-6">
+            <label for="getDoel" class="form-label">Wat is je doel?</label>
+            <textarea class="form-control" id="getDoel" readonly rows="1"></textarea>
+            </select>
+          </div>
+          <div class="col-sm-3"></div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3"></div>
+          <div class="col-sm-6">
+            <br>
+            <button type="button" id="btnGetDoel" class="btn btn-secondary">Huidige doel</button>
+          </div>
+          <div class="col-sm-3"></div>
+        </div>
+      <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+          <label for="getGewichten" class="form-label">Overzicht gewichten</label>
+          <textarea class="form-control" id="getGewichten" readonly rows="3"></textarea>
+          </select>
+        </div>
+        <div class="col-sm-3"></div>
+      </div>
+      <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+          <br>
+          <button type="button" id="btnUserData" class="btn btn-secondary">Zie gegevens</button>
+        </div>
+        <div class="col-sm-3"></div>
+      </div>
+      <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+          <br>
+           <button type="button" id="btnLogUit" class="btn btn-secondary">Log uit</button>
+        </div>
+        <div class="col-sm-3"></div>
+    </main>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+
+</html>
