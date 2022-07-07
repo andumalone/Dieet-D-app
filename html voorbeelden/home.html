@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+	<meta name="description" content="Diet D-app">
+	<meta name="author" content="Dries van den Beuken">
+	<!-- import stylesheet -->
+    <link rel="stylesheet" type="text/css" href="style/main.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Diet D-app</title>
+	<link rel="icon" type="image/x-icon" href="style/favicon.png">
+	<!-- import Web3 and jquery -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.3.4/web3.min.js" 
+		integrity="sha512-TTGImODeszogiro9DUvleC9NJVnxO6M0+69nbM3YE9SYcVe4wZp2XYpELtcikuFZO9vjXNPyeoHAhS5DHzX1ZQ==" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" 
+		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="onboard-container">
+        <h1>Diet D-App</h1>
+        <div class="logo">
+            <lottie-player src="style/diet.json" backgrounds="transparent" speed="1" autoplay></lottie-player>
+        </div>
+		<br><span id="amountEth"></span><br>
+		<div id="adduser" style="display: none;">
+			<hr>
+			<input type="text" class="form-control" id="sendMoney" placeholder="What will your reward be in eth?" value="" required>
+			<input type="text" class="form-control" id="setgoal" placeholder="What is your goal in kg? (whole number)" value="" required>
+			<button type="button" id="btnCreateUser" class="onboard">Submit</button>
+		</div>  
+		<hr>
+		<div class="adder" id="weightadder" style="display: none;">
+			<span>keep track of your weight every week</span>
+			<hr>
+			<input type="text" class="form-control" id="addweight" placeholder="add weight in kg (whole number)" value="" required>
+			<button type="button" id="btnaddweight" class="onboard">add weight</button>
+		</div>
+		<hr>
+		<div>
+			<p class="account" id="userAddress"></p>
+			<button type="button" class="onboard" id="btnlogout">Logout</button>
+			<button type="button" class="onboard" id="btnshowinfo">my info</button>
+			<span id="amountreward"></span>
+		</div>
+    </div>
+</body> 
+<!-- Scripts import -->
+<script src="js/main.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/lottie-player.js"></script>
+</html>
