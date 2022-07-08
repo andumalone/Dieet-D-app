@@ -7,6 +7,13 @@ $(document).ready(function () {
   //main function
   async function app() {
 
+    //metamask connectie
+
+    const ethEnabled = await (async ()=>{
+          await window.ethereum.request({method: 'eth_requestAccounts'});
+    })
+
+
     //open pipeline to the blockchain
     this.web3 = new Web3(new Web3.providers.HttpProvider('http://127.0.0.1:7545/'));
 
@@ -28,7 +35,8 @@ $(document).ready(function () {
     }
 
     // User has no Ethereum accounts
-    if (this.accounts.length == 0) {
+   const accounts = await this.web3.eth.getAccounts
+    if (accounts.length == 0) {
       $("#ErrorMessage").html("Maak een Ethereum wallet aan.")
       $("#ErrorMessage").show();
       return;
@@ -80,14 +88,15 @@ $(document).ready(function () {
 
     //update the html view
     $('#amountEth').html(`Dit contract heeft: ${ether} als beloning .`)
+
     // show elements according to the balance
-    if (balance > 0 ) {
+    /*if (balance > 0 ) {
       document.getElementById("adduser").style.display = "none";
       document.getElementById("gewichtAdder").style.display = "inline";
     } else {
       document.getElementById("adduser").style.display = "inline";
       document.getElementById("gewichtAdder").style.display = "none";
-    }
+    }*/
   }
   // show information as alert
   async function showInfo() {

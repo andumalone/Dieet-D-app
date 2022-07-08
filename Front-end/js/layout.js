@@ -69,7 +69,7 @@ var metadata =[
 				"type": "address"
 			}
 		],
-		"name": "getDoel",
+		"name": "getUserDoel",
 		"outputs": [
 			{
 				"internalType": "uint256",
@@ -88,7 +88,7 @@ var metadata =[
 				"type": "address"
 			}
 		],
-		"name": "returnArray",
+		"name": "showInfo",
 		"outputs": [
 			{
 				"internalType": "uint256[]",
